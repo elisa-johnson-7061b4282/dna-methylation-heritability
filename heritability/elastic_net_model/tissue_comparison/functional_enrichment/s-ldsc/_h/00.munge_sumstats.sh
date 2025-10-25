@@ -23,10 +23,11 @@ echo "Job name: ${SLURM_JOB_NAME}"
 echo "Node name: ${SLURM_NODENAME}"
 echo "Hostname: ${HOSTNAME}"
 
-python munge_sumstats.py \
+python /projects/p32505/users/elisa/dna-methylation-heritability/heritability/elastic_net_model/tissue_comparison/functional_enrichment/s-ldsc/ldsc/munge_sumstats.py \
     --sumstats /projects/b1213/resources/public_data/gwas/alz/AD_sumstats_Jansenetal_2019sept.txt.gz \
     --merge-alleles /projects/p32505/users/elisa/dna-methylation-heritability/heritability/elastic_net_model/tissue_comparison/functional_enrichment/s-ldsc/w_hm3.snplist.gz \
     --out alz \
-    --a1-inc
+    --a1-inc \
+    --N-col Nsum
 
 log_message "**** Job ends ****"
