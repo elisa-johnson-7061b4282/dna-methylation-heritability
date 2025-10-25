@@ -22,6 +22,14 @@ echo "Job id: ${SLURM_JOBID}"
 echo "Job name: ${SLURM_JOB_NAME}"
 echo "Node name: ${SLURM_NODENAME}"
 echo "Hostname: ${HOSTNAME}"
-echo "Task id: ${SLURM_ARRAY_TASK_ID:-N/A}"
+echo "Task id: ${SLURM_ARRAY_TASK_ID}"
+
+python /projects/p32505/users/elisa/dna-methylation-heritability/heritability/elastic_net_model/tissue_comparison/functional_enrichment/s-ldsc/ldsc/ldsc.py \
+  --h2 /projects/b1213/resources/public_data/gwas/alz/AD_sumstats_Jansenetal_2019sept.txt.gz \
+  --ref-ld-chr baselineLD_v2.2/baselineLD.,brain_enhancer_annot/ \
+  --w-ld-chr weights_hm3_no_hla/weights. \
+  --overlap-annot \
+  --frqfile-chr 1000G.EUR.QC. \
+  --out results/brain_enhancer
 
 log_message "**** Job ends ****"
